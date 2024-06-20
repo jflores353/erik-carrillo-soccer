@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`dark:bg-white ${inter.className}`}>
         <div className="px-12 py-8">
           <ThemeProvider
             attribute="class"
@@ -29,7 +29,6 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {/* <Navbar /> */}
             <MainMenu />
             {children}
           </ThemeProvider>

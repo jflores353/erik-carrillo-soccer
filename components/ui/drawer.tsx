@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { Drawer as DrawerPrimitive } from "vaul";
-
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const DrawerContext = React.createContext<{
@@ -46,24 +46,28 @@ const DrawerContent = React.forwardRef<
 >(({ className, children, ...props }, ref) => {
   const { direction } = React.useContext(DrawerContext);
   return (
-    <DrawerPortal>
-      <DrawerOverlay />
-      <DrawerPrimitive.Content
-        ref={ref}
-        className={cn(
-          "fixed z-50 flex h-auto flex-col rounded-t-[10px] border bg-background",
-          (!direction || direction === "bottom") && "inset-x-0 bottom-0 mt-24",
-          direction === "right" && "top-0 right-0 w-screen max-w-80 h-full",
-          className
-        )}
-        {...props}
-      >
-        {(!direction || direction === "bottom") && (
-          <div className="mx-auto mt-4 h-2 w-[100px] rounded-full bg-muted" />
-        )}
-        {children}
-      </DrawerPrimitive.Content>
-    </DrawerPortal>
+    <div>
+      <Image src="/logo-mobile.png" width="200" height="100" alt="Logo" />
+      <DrawerPortal>
+        <DrawerOverlay />
+        <DrawerPrimitive.Content
+          ref={ref}
+          className={cn(
+            "fixed z-50 flex h-auto flex-col rounded-tl-[10px] rounded-bl-[10px] border bg-background",
+            (!direction || direction === "bottom") &&
+              "inset-x-0 bottom-0 mt-24",
+            direction === "right" && "top-0 right-0 w-screen max-w-80 h-full",
+            className
+          )}
+          {...props}
+        >
+          {(!direction || direction === "bottom") && (
+            <div className="mx-auto mt-4 h-2 w-[100px] rounded-full bg-muted" />
+          )}
+          {children}
+        </DrawerPrimitive.Content>
+      </DrawerPortal>
+    </div>
   );
 });
 DrawerContent.displayName = "DrawerContent";

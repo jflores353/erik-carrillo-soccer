@@ -17,6 +17,9 @@ const config = {
         "2xl": "1400px",
       },
     },
+    colors:{
+      muRed: "#DA291C",
+    },
     extend: {
       colors: {
         border: "hsl(var(--border))",
