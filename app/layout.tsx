@@ -10,7 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Erik Carrillo Soccer Training",
+  title: "512 Next Level Training",
   description: "Ready to gain skill, speed, and confidence?",
 };
 
